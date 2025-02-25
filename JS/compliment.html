@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compliment Generator 😊</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f4f4f9;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+    button:hover {
+      background-color: #ff3385;
+    }
+    #compliment {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 60%;
+      margin: 30px auto;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Get a Compliment! 😊💖</h1>
+  <button onclick="generateCompliment()">Give Me a Compliment! ✨</button>
+
+  <p id="compliment">You're already amazing! Click for more! 💕</p>
+
+  <script>
+    const compliments = [
+      "You light up the room! ✨",
+      "You're an incredible person! 🌟",
+      "Your smile is contagious! 😃",
+      "You're a ray of sunshine! ☀️",
+      "You make the world a better place! 🌍",
+      "You're more talented than you realize! 🎨🎶",
+      "You're someone's reason to smile today! 😊",
+      "You have a kind heart! ❤️",
+      "You're stronger than you think! 💪",
+      "You inspire those around you! 💡",
+      "You deserve all the happiness in the world! 💖",
+      "You're doing an amazing job! Keep going! 🚀",
+      "You are enough, just as you are! 💕",
+      "You're a wonderful friend! 🤗",
+      "You spread positivity wherever you go! 🌈"
+    ];
+
+    function generateCompliment() {
+      const randomIndex = Math.floor(Math.random() * compliments.length);
+      document.getElementById("compliment").textContent = compliments[randomIndex];
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Dash</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        .apple {
+            position: absolute;
+            font-size: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .apple:active {
+            transform: scale(1.2);
+        }
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="score">
+    <h1>Emoji dash</h1>
+     Score: 0</div>
+    <div id="game-container"></div>
+    
+    <script>
+        let score = 0;
+        const gameContainer = document.getElementById("game-container");
+        const scoreDisplay = document.getElementById("score");
+        
+        function spawnApple() {
+            let apple = document.createElement("div");
+            apple.innerHTML = "🍏";
+            apple.classList.add("apple");
+            let x = Math.random() * (window.innerWidth - 50);
+            let y = Math.random() * (window.innerHeight - 50);
+            apple.style.left = `${x}px`;
+            apple.style.top = `${y}px`;
+            gameContainer.appendChild(apple);
+            
+            apple.addEventListener("click", () => {
+                score++;
+                scoreDisplay.innerText = `Score: ${score}`;
+                apple.remove();
+                spawnApple();
+            });
+        }
+        
+        spawnApple();
+        setInterval(() => {
+            let apple = document.querySelector(".apple");
+            if (apple) {
+                let x = Math.random() * (window.innerWidth - 50);
+                let y = Math.random() * (window.innerHeight - 50);
+                apple.style.left = `${x}px`;
+                apple.style.top = `${y}px`;
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
